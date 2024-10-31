@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root {
+    --purple-100: hsl(254, 88%, 90%);
+    --purple-500: hsl(256, 67%, 59%);
+
+    --yellow-100: hsl(31, 66%, 93%);
+    --yellow-500: hsl(39, 100%, 71%);
+
+    --white-bg: hsl(0, 0%, 100%);
+    --black-bg: hsl(0, 0%, 7%);
+    font-family: "DM Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.bento-grid {
+    width: 100%;
+    display: grid;
+    grid-template: repeat(14, 1fr) / repeat(4, 1fr);
+    gap: 1.9rem;
+    letter-spacing: -2px;
+    line-height: 2.7rem;
+    font-weight: 500;
+}
+
+.bento-grid img {
+    width: 50px;
+}
+
+.bento-grid div {
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    padding: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 1.8rem;
+}
+
+.side {
+    font-size: 3rem;
+    line-height: 2.7rem;
+    letter-spacing: -2px;
+}
+
+.bento-grid div:nth-child(1) {
+    grid-row: 1 / 7;
+    background-color: var(--yellow-100);
+    font-size: 3rem;
+}
+
+.bento-grid div:nth-child(1) span {
+    font-style: italic;
+    color: var(--purple-500);
+}
+
+.bento-grid div:nth-child(1) img {
+    width: 100%;
+}
+
+.bento-grid div:nth-child(2) {
+    grid-column: 2 / 4;
+    grid-row: 1 / 6;
+    background-color: var(--purple-500);
+    font-size: 3.7rem;
+    text-align: center;
+    line-height: 3.5rem;
+    color: var(--white-bg);
+    word-spacing: 0.4rem;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.bento-grid div:nth-child(2) span:first-of-type {
+    color: var(--yellow-500);
+}
+
+.bento-grid div:nth-child(2) span:last-of-type {
+    font-style: italic;
+}
+
+.bento-grid div:nth-child(2) figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bento-grid div:nth-child(2) figure figcaption {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 2.5rem;
+    word-spacing: normal;
+    opacity: 0.;
+}
+
+.bento-grid div:nth-child(2) img {
+    width: 43%;
+}
+
+.bento-grid div:nth-child(3) {
+    grid-column: 4 / 5;
+    grid-row: 1 / 10;
+    background-color: var(--purple-100);
+    font-size: 2rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    justify-content: center;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+.bento-grid div:nth-child(3) img {
+    width: 180%;
+}
+
+.subtitle {
+    font-size: 1.23rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.4rem;
+    letter-spacing: -1px;
+    opacity: 0.6;
+}
+
+.bento-grid div:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 6 / 10;
+    background-color: var(--white-bg);
+    overflow: hidden;
+}
+
+.bento-grid div:nth-child(4) p,
+.bento-grid div:nth-child(5) p {
+    font-size: 2rem;
+    line-height: 1.7rem;
+    font-weight: 600;
+    padding-right: 1rem;
+}
+
+.bento-grid div:nth-child(4) img {
+    width: 153%;
+}
+
+.bento-grid div:nth-child(5) {
+    grid-column: 3 / 4;
+    grid-row: 6 / 10;
+    background-color: var(--yellow-500);
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-grid div:nth-child(5) img {
+    width: 80%;
+    position: absolute;
+    top: 60%;
+}
+
+.bento-grid div:nth-child(6) {
+    grid-row: 7 / 14;
+    background-color: var(--yellow-500);
+    justify-content: space-around;
+    gap: 4rem;
+}
+
+.bento-grid div:nth-child(6) img {
+    width: 100%;
+}
+
+.bento-grid div:nth-child(7) {
+    grid-column: 2 / 3;
+    grid-row: 10 / 14;
+    background-color: var(--white-bg);
+}
+
+.bento-grid div:nth-child(7) {
+    font-size: 4.1rem;
+}
+
+.bento-grid div:nth-child(7) img {
+    width: 79%;
+}
+
+.bento-grid div:nth-child(8) {
+    grid-column: 3 / 5;
+    grid-row: 10 / 14;
+    background-color: var(--purple-500);
+    flex-direction: row;
+    align-items: center;
+}
+
+.bento-grid div:nth-child(8) img {
+    width: 45%;
+}
+
+.bento-grid div:nth-child(8) p {
+    color: var(--white-bg);
+    font-size: 2.8rem;
+    font-weight: 400;
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+    /* Estilos para móviles pequeños */
+}
+
+/* Móvil grande */
+@media (min-width: 481px) and (max-width: 767px) {
+    /* Estilos para móviles grandes */
+}
+
+/* Tableta */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Estilos para tabletas */
+}
+
+/* Laptop pequeña y escritorio */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* Estilos para laptops pequeñas y pantallas de escritorio */
+}
+
+/* Escritorio grande */
+@media (min-width: 1281px) {
+    /* Estilos para pantallas de escritorio grandes */
+}
