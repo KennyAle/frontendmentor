@@ -24,6 +24,7 @@ body {
 
 .bento-grid {
     width: 100%;
+    margin: auto;
     max-width: 1440px;
     display: grid;
     grid-template: repeat(14, 1fr) / repeat(4, 1fr);
