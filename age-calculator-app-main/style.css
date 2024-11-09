@@ -96,3 +96,57 @@ p {
 input[type="submit"] {
     display: none;
 }
+
+label {
+    color: red;
+}
+
+input {
+    outline: 1px solid red;
+}
+
+input:focus {
+    outline-color: var(--purple);
+}
+
+@media (max-width: 768px) {
+    .age-calculator {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        max-width: 100%;
+        padding: 3rem 1.5rem;
+        margin: 1rem;
+        border-radius: 1rem 1rem 6rem 1rem;
+    }
+
+    form {
+        gap: 1rem;
+    }
+
+    form label:last-child {
+        margin-left: -1rem;
+    }
+
+    input {
+        width: 100%;
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+        padding: 1.1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    article {
+        margin: auto;
+    }
+
+    p {
+        font-size: 3rem;
+    }   
+}
