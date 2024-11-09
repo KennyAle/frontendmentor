@@ -39,6 +39,7 @@ function validateForm() {
 
     if (isDayValid && isMonthValid && isYearValid) {
         let age = createDate(year, month, day)
+        console.log(age)
         submitImg.style.setProperty('--offBlack', 'hsl(259, 100%, 65%)')
         animateCounter(age)
     }
@@ -49,8 +50,12 @@ function validateDay(value, month, year) {
         showError(errorDay, dayLabel, dayInput, 'This field is required')
         return false
     }
-    if (value > 31 || value <= 0 || (year == d.getFullYear() && month == d.getMonth() + 1 && value > d.getDate())) {
+    if (value > 31 || value <= 0) {
         showError(errorDay, dayLabel, dayInput, 'Must be a valid day')
+        return false
+    }
+    if (year == d.getFullYear() && month == d.getMonth() + 1 && value > d.getDate()) {
+        showError(errorDay, dayLabel, dayInput, 'Must be in the past')
         return false
     }
     if (value > monthLength[month - 1]) {
@@ -66,8 +71,12 @@ function validateMonth(value, year) {
         showError(errorMonth, monthLabel, monthInput, 'This field is required')
         return false
     }
-    if (value > 12 || value <= 0 || (year == d.getFullYear() && value > d.getMonth() + 1)) {
+    if (value > 12 || value <= 0) {
         showError(errorMonth, monthLabel, monthInput, 'Must be a valid month')
+        return false
+    }
+    if (year == d.getFullYear() && value > d.getMonth() + 1) {
+        showError(errorMonth, monthLabel, monthInput, 'Must be in the past')
         return false
     }
     hideError(errorMonth, monthLabel, monthInput)
@@ -111,6 +120,13 @@ function createDate(year, month, day) {
 
 function animateCounter(age) {
     let yearCounter = 0, monthCounter = 0, dayCounter = 0
+
+    if (age.birthYear === 0 && age.birthMonth === 0 && age.birthDay === 0) {
+        years.innerHTML = 0
+        months.innerHTML = 0
+        days.innerHTML = 0
+        return
+    }
 
     const interval = setInterval(() => {
         if (yearCounter < age.birthYear) {
