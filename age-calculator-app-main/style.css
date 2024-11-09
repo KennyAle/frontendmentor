@@ -54,7 +54,25 @@ label {
     color: var(--smokeyGrey);
     font-size: 0.7rem;
     letter-spacing: 0.2rem;
+}
 
+form label:last-child {
+    width: 20px;
+    margin-left: -2rem;
+    pointer-events: none;
+}
+
+.error {
+    display: none;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: lighter;
+    font-style: italic;
+    color: red;
+}
+
+.visible {
+    display: block;
 }
 
 input {
@@ -87,7 +105,7 @@ article {
     gap: 0.5rem;
 }
 
-p {
+.total {
     font-size: 5rem;
     font-weight: 800;
     font-style: italic;
@@ -95,14 +113,6 @@ p {
 
 input[type="submit"] {
     display: none;
-}
-
-label {
-    color: red;
-}
-
-input {
-    outline: 1px solid red;
 }
 
 input:focus {
@@ -146,7 +156,7 @@ input:focus {
         margin: auto;
     }
 
-    p {
+    .total {
         font-size: 3rem;
     }   
 }

@@ -23,17 +23,20 @@
 <body>
   <section class="age-calculator">
     <form id="form" action="post">
-      <label for="day">
+      <label id="labelDay" for="day">
         Day
-        <input type="text" id="day" name="day" placeholder="DD"  required>
+        <input type="text" id="dayInput" name="day" placeholder="DD">
+        <p class="error" id="errorDay"></p>
       </label>
-      <label for="month">
+      <label id="labelMonth" for="month">
         Month
-        <input type="text" id="month" name="month" placeholder="MM" required>
+        <input type="text" id="monthInput" name="month" placeholder="MM">
+        <p class="error" id="errorMonth"></p>
       </label>
-      <label for="year">
+      <label id="labelYear" for="year">
         Year
-        <input type="text" id="year" name="year" placeholder="YYYY" required>
+        <input type="text" id="yearInput" name="year" placeholder="YYYY">
+        <p class="error" id="errorYear"></p>
       </label>
       <label id="submitLabel">
         <input type="submit" id="submit" name="image" value="one">
@@ -41,9 +44,9 @@
        </label>
     </form>
     <article>
-      <p><span id="years">- -</span> years</p>
-      <p><span id="months">- -</span> months</p>
-      <p><span id="days">- -</span> days</p>
+      <p class="total"><span id="years">- -</span> years</p>
+      <p class="total"><span id="months">- -</span> months</p>
+      <p class="total"><span id="days">- -</span> days</p>
     </article>
   </section>
   <script src="index.js"></script>
