@@ -25,28 +25,32 @@
     <form action="post">
       <label for="day">
         Day
-        <input type="text" id="day" name="day" placeholder="DD">
+        <input type="text" id="day" name="day" placeholder="DD"  required>
       </label>
       <label for="month">
         Month
-        <input type="text" id="month" name="month" placeholder="MM">
+        <input type="text" id="month" name="month" placeholder="MM" required>
       </label>
       <label for="year">
         Year
-        <input type="text" id="year" name="year" placeholder="YYYY">
+        <input type="text" id="year" name="year" placeholder="YYYY" required>
       </label>
+      <label>
+        <input type="submit" id="submit" name="image" value="one">
+        <img id="submitBtn" src="assets/images/icon-arrow.svg" alt="">
+       </label>
     </form>
-    <img src="assets/images/icon-arrow.svg" alt="">
     <article>
-      <p><span id="years">--</span>years</p>
-      <p><span id="months">--</span>months</p>
-      <p><span id="days">--</span>days</p>
+      <p><span id="years">- -</span>years</p>
+      <p><span id="months">- -</span>months</p>
+      <p><span id="days">- -</span>days</p>
     </article>
   </section>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">My Name Should Be Here But I Forgot</a>.
   </div>
+  <script src="index.js"></script>
 </body>
 
 </html>
