@@ -54,7 +54,25 @@ label {
     color: var(--smokeyGrey);
     font-size: 0.7rem;
     letter-spacing: 0.2rem;
+}
 
+form label:last-child {
+    width: 20px;
+    margin-left: -2rem;
+    pointer-events: none;
+}
+
+.error {
+    display: none;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: lighter;
+    font-style: italic;
+    color: red;
+}
+
+.visible {
+    display: block;
 }
 
 input {
@@ -87,7 +105,7 @@ article {
     gap: 0.5rem;
 }
 
-p {
+.total {
     font-size: 5rem;
     font-weight: 800;
     font-style: italic;
@@ -95,4 +113,50 @@ p {
 
 input[type="submit"] {
     display: none;
+}
+
+input:focus {
+    outline-color: var(--purple);
+}
+
+@media (max-width: 768px) {
+    .age-calculator {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        max-width: 100%;
+        padding: 3rem 1.5rem;
+        margin: 1rem;
+        border-radius: 1rem 1rem 6rem 1rem;
+    }
+
+    form {
+        gap: 1rem;
+    }
+
+    form label:last-child {
+        margin-left: -1rem;
+    }
+
+    input {
+        width: 100%;
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+        padding: 1.1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    article {
+        margin: auto;
+    }
+
+    .total {
+        font-size: 3rem;
+    }   
 }
