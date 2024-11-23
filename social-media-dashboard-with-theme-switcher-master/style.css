@@ -1,10 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
---facebook: hsl(208, 92%, 53%);
---twitter: hsl(203, 89%, 53%);
---instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
---youTube: hsl(348, 97%, 39%);
+    --lime-green: hsl(163, 72%, 41%);
+    --bright-red: hsl(356, 69%, 56%);
+    --facebook: hsl(208, 92%, 53%);
+    --twitter: hsl(203, 89%, 53%);
+    --instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+    --youTube: hsl(348, 97%, 39%);
+
+    /* Light Theme */
+    --white-BG: hsl(0, 0%, 100%);
+    --very-Pale-Blue-Top-BG-Pattern: hsl(225, 100%, 98%);
+    --light-Grayish-Blue-Card-BG: hsl(227, 47%, 96%);
+    --dark-Grayish-Blue-Text: hsl(228, 12%, 44%);
+    --very-Dark-Blue-Text: hsl(230, 17%, 14%);
+    --toggle: hsl(230, 22%, 74%);
+
+    /* Dark Theme */
+    --very-Dark-Blue-BG: hsl(230, 17%, 14%);
+    --very-Dark-Blue-Top-BG-Pattern: hsl(232, 19%, 15%);
+    --dark-Desaturated-Blue-Card-BG: hsl(228, 28%, 20%);
+    --desaturated-Blue-Text: hsl(228, 34%, 66%);
+    --white-Text: hsl(0, 0%, 100%);
+    --toggle-dark: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+
 }
 
 * {
@@ -15,6 +34,8 @@
 
 body {
     font-family: "Inter", sans-serif;
+    background-color: var(--white-BG);
+    transition: background-color 200ms ease-in;
 }
 
 main {
@@ -25,17 +46,75 @@ main {
     max-width: 1440px;
     margin: auto;
     padding: 2rem 0;
-    background-color: whitesmoke;
+    color: var(--dark-Grayish-Blue-Text);
+}
+
+main::before {
+    content: '';
+    background-color: var(--very-Pale-Blue-Top-BG-Pattern);
+    width: 100vw;
+    height: 30%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: background-color 200ms ease-in;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
+}
+
+header h1 {
+    color: var(--very-Dark-Blue-Text);
 }
 
 header h2 {
     font-size: 1rem;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: var(--toggle);
+    width: 3.4rem;
+    height: 1.6rem;
+    border-radius: 1.2rem;
+}
+
+.slider::after {
+    content: '';
+    right: 4px;
+    position: absolute;
+    background-color: var(--white-BG);
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 100%;
+    transition: right 300ms ease-in-out;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked~.slider::after {
+    right: calc(100% - 1.2rem - 4px);
+    background-color: var(--very-Dark-Blue-BG);
+}
+
+input[type="checkbox"]:checked~.slider {
+    background: var(--toggle-dark);
 }
 
 .social-media {
@@ -46,27 +125,42 @@ header h2 {
 }
 
 .social-media article {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    background-color: bisque;
+    background-color: var(--light-Grayish-Blue-Card-BG);
     width: calc(25% - 1.3rem);
     padding: 1.5rem;
     border-radius: 6px;
+    transition: background-color 200ms ease-in;
 }
 
-.social-media article {
-    border-top: 5px solid var(--facebook);
+.social-media article::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 3px;
+    border-radius: 80px 80px 0 0;
 }
 
-.social-media article:nth-child(3) {
-    border-top: 5px solid transparent;
-    border-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%)) 1;
+.social-media article:nth-child(1)::after {
+    background-color: var(--facebook);
 }
 
-.social-media article:nth-child(4) {
-    border-top: 5px solid var(--youTube);
+.social-media article:nth-child(2)::after {
+    background-color: var(--twitter);
+}
+
+.social-media article:nth-child(3)::after {
+    background: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
+
+.social-media article:nth-child(4)::after {
+    background-color: var(--youTube);
 }
 
 .social-media article p {
@@ -82,6 +176,7 @@ header h2 {
     flex-direction: column-reverse;
     align-items: center;
     font-size: 14px;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
 }
@@ -89,6 +184,7 @@ header h2 {
 .counter {
     font-size: 2.8rem;
     font-weight: 800;
+    color: var(--very-Dark-Blue-Text);
 }
 
 .overview {
@@ -110,9 +206,10 @@ header h2 {
     flex-direction: column;
     gap: 0.8rem;
     width: calc(25% - 1.3rem);
-    background-color: antiquewhite;
+    background-color: var(--light-Grayish-Blue-Card-BG);
     padding: 1.5rem;
     border-radius: 6px;
+    transition: background-color 200ms ease-in;
 }
 
 .today article h3 {
@@ -131,6 +228,10 @@ header h2 {
     margin-top: auto;
 }
 
+.today .today-counter {
+    color: var(--very-Dark-Blue-Text);
+}
+
 .updown {
     display: flex;
     flex-direction: row;
@@ -140,9 +241,106 @@ header h2 {
 }
 
 .up {
-    color: green;
+    color: var(--lime-green);
 }
 
 .down {
-    color: red;
+    color: var(--bright-red);
+}
+
+hr {
+    display: none;
+}
+
+/* DARK THEME */
+
+body.dark-theme {
+    background-color: var(--very-Dark-Blue-BG);
+}
+
+body.dark-theme main {
+    color: var(--desaturated-Blue-Text);
+}
+
+body.dark-theme main::before {
+    background-color: var(--very-Dark-Blue-Top-BG-Pattern);
+}
+
+body.dark-theme header h1 {
+    color: var(--white-Text);
+}
+
+body.dark-theme .social-media article {
+    background-color: var(--dark-Desaturated-Blue-Card-BG);
+}
+
+body.dark-theme .counter {
+    color: var(--white-Text);
+}
+
+body.dark-theme .today article {
+    background-color: var(--dark-Desaturated-Blue-Card-BG);
+}
+
+body.dark-theme .today .today-counter {
+    color: var(--white-Text);
+}
+
+body.dark-theme .overview h2 {
+    color: var(--white-Text);
+}
+
+
+/* Large Smartphone */
+@media (max-width: 768px) {
+    main {
+        width: 85%;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+    }
+    header div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    hr {
+        display: block;
+        width: 100%;
+        border: 1px solid var(--dark-Grayish-Blue-Text);       
+    }
+    .toggle {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .social-media {
+        flex-direction: column;
+    }
+    .social-media article {
+        width: 100%;
+    }
+    .today {
+        flex-direction: column;
+    }
+    .today article {
+        width: 100%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+    main {
+        width: 90%;
+    }
+    .social-media {
+        gap: 1rem;
+    }
+    .social-media article {
+        width: calc(25% - 1rem);
+    }
 }
