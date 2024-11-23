@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+--facebook: hsl(208, 92%, 53%);
+--twitter: hsl(203, 89%, 53%);
+--instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+--youTube: hsl(348, 97%, 39%);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -46,7 +53,20 @@ header h2 {
     background-color: bisque;
     width: calc(25% - 1.3rem);
     padding: 1.5rem;
-    border-radius: 5px;
+    border-radius: 6px;
+}
+
+.social-media article {
+    border-top: 5px solid var(--facebook);
+}
+
+.social-media article:nth-child(3) {
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%)) 1;
+}
+
+.social-media article:nth-child(4) {
+    border-top: 5px solid var(--youTube);
 }
 
 .social-media article p {
@@ -92,7 +112,7 @@ header h2 {
     width: calc(25% - 1.3rem);
     background-color: antiquewhite;
     padding: 1.5rem;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .today article h3 {
